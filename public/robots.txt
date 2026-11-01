@@ -1,5 +1,5 @@
 # Robots.txt for Vrunda Films (Himanshu Sarvaiya)
-# Website: https://vrundafilms.com (Replace with your actual production domain upon deployment)
+# Live Website: https://vrunda-films.vercel.app/
 
 User-agent: *
 Allow: /
@@ -14,5 +14,4 @@ Allow: /himanshu-sarvaiya.png
 Disallow: /*.map$
 
 # XML Sitemap Location
-# NOTE: Replace 'https://vrundafilms.com' with your verified production domain in Google Search Console
-Sitemap: https://vrundafilms.com/sitemap.xml
+Sitemap: https://vrunda-films.vercel.app/sitemap.xml

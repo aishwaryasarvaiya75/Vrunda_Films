@@ -1,11 +1,9 @@
 import { contactConfig } from '../data/contactConfig'
 
 /**
- * Default production domain placeholder.
- * If the user deploys to a custom domain (e.g. https://vrundafilms.com or a vercel.app domain),
- * it can be updated here or will automatically adapt to window.location.origin in the browser.
+ * Production domain for Vrunda Films live on Vercel.
  */
-export const DEFAULT_PRODUCTION_DOMAIN = 'https://vrundafilms.com'
+export const DEFAULT_PRODUCTION_DOMAIN = 'https://vrunda-films.vercel.app'
 
 export const getSiteUrl = () => {
   if (typeof window !== 'undefined' && window.location.origin && !window.location.origin.includes('localhost')) {
@@ -132,14 +130,14 @@ export function updatePageMetadata(pageKey) {
   setMetaTag('name', 'twitter:description', page.description)
   setMetaTag('name', 'twitter:image', ogImageUrl)
 
-  // 6. Canonical Link
+  // 6. Canonical Link (in hash-routed SPAs, canonical points to base indexable URL)
   let canonicalLink = document.querySelector('link[rel="canonical"]')
   if (!canonicalLink) {
     canonicalLink = document.createElement('link')
     canonicalLink.setAttribute('rel', 'canonical')
     document.head.appendChild(canonicalLink)
   }
-  canonicalLink.setAttribute('href', pageUrl)
+  canonicalLink.setAttribute('href', `${siteUrl}/`)
 
   // 7. Dynamic WebPage JSON-LD
   let webpageScript = document.getElementById('seo-dynamic-webpage-jsonld')
