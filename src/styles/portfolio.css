@@ -1,0 +1,193 @@
+/* ==========================================================================
+   Portfolio Page Styles - Art-Directed Image-First Gallery
+   ========================================================================== */
+
+.portfolio-page {
+  padding-bottom: 120px;
+}
+
+/* Category Filter Tabs */
+.portfolio-nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.portfolio-cat-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 6px 0;
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  transition: color var(--transition-fast);
+}
+
+.portfolio-cat-count {
+  font-size: 10px;
+  opacity: 0.65;
+  font-family: var(--font-sans);
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+.portfolio-cat-btn:hover {
+  color: #ffffff;
+}
+
+.portfolio-cat-btn.active {
+  color: #ffffff;
+}
+
+.portfolio-cat-btn.active .portfolio-cat-count {
+  color: var(--accent-bronze-light);
+  opacity: 1;
+}
+
+.portfolio-cat-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -21px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-bronze);
+}
+
+/* ==========================================================================
+   Clean, Uncropped Multi-Column Photography Gallery
+   Preserves 100% of each photograph's natural aspect ratio without any cropping.
+   ========================================================================== */
+
+.portfolio-gallery-masonry {
+  column-count: 3;
+  column-gap: 28px;
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .portfolio-gallery-masonry {
+    column-count: 2;
+    column-gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-gallery-masonry {
+    column-count: 1;
+    column-gap: 16px;
+  }
+}
+
+.portfolio-card {
+  break-inside: avoid;
+  margin-bottom: 28px;
+  position: relative;
+  background-color: #0d0e12;
+  border: 1px solid rgba(182, 154, 104, 0.18);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.35s ease;
+}
+
+@media (max-width: 1100px) {
+  .portfolio-card {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-card {
+    margin-bottom: 16px;
+  }
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(182, 154, 104, 0.65);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75), 0 0 18px rgba(182, 154, 104, 0.12);
+}
+
+.portfolio-card-media {
+  position: relative;
+  width: 100%;
+  background-color: #07080a;
+  display: block;
+  overflow: hidden;
+}
+
+/* Crucial: Preserve 100% of the photograph's natural dimensions & aspect ratio */
+.portfolio-card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-card:hover .portfolio-card-img {
+  transform: scale(1.02);
+}
+
+/* Elegant Champagne-Gold Editorial Hover Overlay */
+.portfolio-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 8, 10, 0) 45%,
+    rgba(7, 8, 10, 0.75) 75%,
+    rgba(7, 8, 10, 0.94) 100%
+  );
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 22px;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.portfolio-card:hover .portfolio-card-overlay {
+  opacity: 1;
+}
+
+.portfolio-card-tag {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-bronze);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.portfolio-card-title {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0 0 3px;
+  line-height: 1.25;
+}
+
+.portfolio-card-loc {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  font-weight: 300;
+}

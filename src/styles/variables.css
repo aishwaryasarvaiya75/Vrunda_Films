@@ -1,0 +1,44 @@
+:root {
+  /* Exact Specified Palette */
+  --bg-primary: #111111;
+  --bg-secondary: #161616;
+  --bg-surface: #1a1a1a;
+  --bg-subtle: #222222;
+  --bg-overlay: rgba(17, 17, 17, 0.92);
+
+  /* Typography Colors */
+  --text-primary: #F5F1E8;       /* Warm white */
+  --text-secondary: #AAA6A0;     /* Soft grey */
+  --text-muted: #7E7A75;
+  --text-subtle: #55524E;
+
+  /* Muted Bronze Accents */
+  --accent-bronze: #B69A68;
+  --accent-bronze-light: #CBB48A;
+  --accent-bronze-muted: rgba(182, 154, 104, 0.2);
+
+  /* Hairline Borders */
+  --border-hairline: rgba(245, 241, 232, 0.08);
+  --border-light: rgba(245, 241, 232, 0.16);
+  --border-bronze: rgba(182, 154, 104, 0.35);
+
+  /* Typography Stacks */
+  --font-serif: 'Cormorant Garamond', Garamond, 'Times New Roman', Georgia, serif;
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-max: 1280px;
+  --container-narrow: 920px;
+  --section-pad: 110px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-pad: 64px;
+  }
+}

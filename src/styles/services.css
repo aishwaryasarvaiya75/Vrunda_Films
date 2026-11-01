@@ -1,0 +1,147 @@
+/* ==========================================================================
+   Services Page Styles - Clean Editorial List Layout
+   ========================================================================== */
+
+.services-page {
+  padding-bottom: 120px;
+}
+
+.services-group-wrapper {
+  margin-bottom: 90px;
+}
+
+.services-group-header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.services-group-title {
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.services-group-count {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent-bronze);
+}
+
+/* Editorial Service Items List */
+.services-editorial-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-editorial-row {
+  display: grid;
+  grid-template-columns: 60px 1.4fr 1.6fr 160px;
+  gap: 24px;
+  align-items: center;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--border-hairline);
+  transition: all var(--transition-fast);
+}
+
+.service-editorial-row:hover {
+  background: rgba(255, 255, 255, 0.015);
+  padding-left: 12px;
+  padding-right: 12px;
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 900px) {
+  .service-editorial-row {
+    grid-template-columns: 50px 1fr auto;
+    gap: 16px;
+  }
+
+  .service-row-summary {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .service-editorial-row {
+    grid-template-columns: 36px 1fr;
+    gap: 12px;
+    padding: 20px 0;
+  }
+
+  .service-row-action {
+    grid-column: 2 / -1;
+    margin-top: 6px;
+  }
+}
+
+.service-row-idx {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  letter-spacing: 2px;
+  color: var(--text-subtle);
+  font-weight: 500;
+}
+
+.service-row-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-row-name {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 2.2vw, 26px);
+  color: #ffffff;
+  font-weight: 400;
+  transition: color var(--transition-fast);
+}
+
+.service-editorial-row:hover .service-row-name {
+  color: var(--accent-bronze-light);
+}
+
+.service-row-tag {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.service-row-summary {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.service-row-action {
+  text-align: right;
+}
+
+.btn-inquire-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--border-hairline);
+  color: var(--text-muted);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-inquire-link:hover {
+  border-color: var(--accent-bronze);
+  color: #ffffff;
+  background: rgba(197, 164, 104, 0.08);
+}

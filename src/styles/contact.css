@@ -1,0 +1,165 @@
+/* ==========================================================================
+   Contact Page Styles - Minimal Editorial Layout
+   ========================================================================== */
+
+.contact-page {
+  padding-bottom: 120px;
+}
+
+.contact-layout-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .contact-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+/* Contact Channels List */
+.contact-channels-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-channel-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--border-hairline);
+  color: inherit;
+  transition: all var(--transition-fast);
+}
+
+.contact-channel-row:hover {
+  padding-left: 12px;
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.contact-channel-type {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent-bronze);
+  margin-bottom: 4px;
+}
+
+.contact-channel-detail {
+  font-family: var(--font-sans);
+  font-size: clamp(20px, 2.2vw, 28px);
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-variant-numeric: tabular-nums;
+  transition: color var(--transition-fast);
+}
+
+.contact-channel-row:hover .contact-channel-detail {
+  color: var(--accent-bronze-light);
+}
+
+.contact-channel-arrow {
+  color: var(--text-muted);
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.contact-channel-row:hover .contact-channel-arrow {
+  transform: translateX(6px);
+  color: #ffffff;
+}
+
+/* Studio Information Column */
+.contact-studio-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  padding: 44px 36px;
+}
+
+.studio-box-heading {
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.studio-info-group {
+  margin-bottom: 28px;
+}
+
+.studio-info-label {
+  font-size: 10.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-bronze);
+  margin-bottom: 6px;
+}
+
+.studio-info-value {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.studio-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text-muted);
+  border-left: 1px solid var(--border-bronze);
+  padding-left: 18px;
+  margin-top: 36px;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+/* Studio Direct Booking Card */
+.studio-booking-card {
+  margin-top: 32px;
+  padding: 28px 24px;
+  background: rgba(182, 154, 104, 0.05);
+  border: 1px solid rgba(182, 154, 104, 0.25);
+  border-radius: 4px;
+}
+
+.studio-booking-title {
+  font-size: 19px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 8px 0 10px;
+  line-height: 1.3;
+}
+
+.studio-booking-text {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.studio-booking-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 20px;
+  font-size: 11.5px;
+  background: var(--accent-bronze);
+  color: #07080a;
+  border-color: var(--accent-bronze);
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(182, 154, 104, 0.2);
+}
+
+.studio-booking-btn:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #07080a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(255, 255, 255, 0.2);
+}

@@ -1,0 +1,521 @@
+/* ==========================================================================
+   Full-Screen Cinematic Camera Viewfinder & Mechanical Shutter Intro
+   Slow, Smooth, Tactile Photographic Experience
+   ========================================================================== */
+
+.camera-intro-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 99999;
+  pointer-events: all;
+  overflow: hidden;
+  background-color: transparent;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.camera-intro-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   1. Mechanical Shutter Curtains (Dual Horizontal Focal Plane Blades)
+   -------------------------------------------------------------------------- */
+.shutter-curtain-top,
+.shutter-curtain-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 50.5%;
+  background: radial-gradient(circle at 50% 50%, #15161c 0%, #090a0d 100%);
+  z-index: 2;
+  will-change: transform;
+  transition: transform 0.85s cubic-bezier(0.77, 0, 0.175, 1);
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.98);
+}
+
+.shutter-curtain-top {
+  top: 0;
+  border-bottom: 1.5px solid rgba(182, 154, 104, 0.35);
+  transform: translateY(0%);
+}
+
+.shutter-curtain-bottom {
+  bottom: 0;
+  border-top: 1.5px solid rgba(182, 154, 104, 0.35);
+  transform: translateY(0%);
+}
+
+/* Shutter Opening Phase */
+.camera-intro-overlay.shutter-open .shutter-curtain-top {
+  transform: translateY(-101%);
+}
+
+.camera-intro-overlay.shutter-open .shutter-curtain-bottom {
+  transform: translateY(101%);
+}
+
+/* Horizontal focal plane seam indicator */
+.shutter-seam-glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 2px;
+  background: radial-gradient(circle, rgba(182, 154, 104, 0.8) 0%, transparent 85%);
+  z-index: 3;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.camera-intro-overlay.shutter-open .shutter-seam-glow {
+  opacity: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. Cinematic Viewfinder Overlay & Framing Grid
+   -------------------------------------------------------------------------- */
+.viewfinder-hud-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(20px, 3.5vw, 44px);
+  color: #d1cdc7;
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: opacity 0.6s ease-out;
+  font-variant-numeric: tabular-nums;
+}
+
+.camera-intro-overlay.shutter-open .viewfinder-hud-layer {
+  opacity: 0;
+}
+
+/* Viewfinder Rule-of-Thirds Grid Hairlines */
+.viewfinder-grid-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.22;
+  transition: opacity 0.4s ease;
+}
+
+.camera-intro-overlay.shutter-open .viewfinder-grid-lines {
+  opacity: 0;
+}
+
+.grid-line-h1,
+.grid-line-h2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(245, 241, 232, 0.4);
+}
+
+.grid-line-h1 { top: 33.333%; }
+.grid-line-h2 { top: 66.666%; }
+
+.grid-line-v1,
+.grid-line-v2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(245, 241, 232, 0.4);
+}
+
+.grid-line-v1 { left: 33.333%; }
+.grid-line-v2 { left: 66.666%; }
+
+/* Corner Framing Brackets */
+.hud-corner-bracket {
+  position: absolute;
+  width: clamp(28px, 4.5vw, 48px);
+  height: clamp(28px, 4.5vw, 48px);
+  border-color: rgba(182, 154, 104, 0.7);
+  border-style: solid;
+  border-width: 0;
+  pointer-events: none;
+}
+
+.bracket-tl {
+  top: clamp(20px, 3.5vw, 44px);
+  left: clamp(20px, 3.5vw, 44px);
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.bracket-tr {
+  top: clamp(20px, 3.5vw, 44px);
+  right: clamp(20px, 3.5vw, 44px);
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.bracket-bl {
+  bottom: clamp(20px, 3.5vw, 44px);
+  left: clamp(20px, 3.5vw, 44px);
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.bracket-br {
+  bottom: clamp(20px, 3.5vw, 44px);
+  right: clamp(20px, 3.5vw, 44px);
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+/* Top Telemetry Bar */
+.hud-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hud-rec-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.hud-rec-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff1744;
+  box-shadow: 0 0 12px #ff1744;
+  animation: recBlink 1s infinite ease-in-out;
+}
+
+@keyframes recBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.85); }
+}
+
+.hud-format-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(182, 154, 104, 0.25);
+  padding: 5px 14px;
+  border-radius: 2px;
+}
+
+.hud-format-cine {
+  color: var(--accent-bronze, #B69A68);
+  font-weight: 600;
+}
+
+.hud-battery-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #b0aca5;
+}
+
+.hud-battery-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 4px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 1px;
+}
+
+.hud-bat-pip {
+  width: 4px;
+  height: 8px;
+  background: #66bb6a;
+}
+
+/* Bottom Telemetry Bar */
+.hud-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 16px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.hud-camera-params {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 6px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hud-param-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hud-param-label {
+  color: #8a867f;
+  font-size: 9.5px;
+}
+
+.hud-param-value {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Exposure Meter Scale */
+.hud-exposure-meter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: #a09c95;
+  letter-spacing: 1px;
+}
+
+.hud-meter-scale {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px;
+}
+
+.hud-meter-pip {
+  width: 2px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.hud-meter-pip.center {
+  height: 10px;
+  background-color: #00e676;
+  box-shadow: 0 0 6px #00e676;
+}
+
+/* Focus Status Pill */
+.hud-focus-status-pill {
+  padding: 5px 12px;
+  border: 1px solid var(--accent-bronze, #B69A68);
+  color: var(--accent-bronze, #B69A68);
+  font-weight: 600;
+  font-size: 10px;
+  transition: all 0.3s ease;
+}
+
+.hud-focus-status-pill.locked {
+  border-color: #00e676;
+  color: #00e676;
+  background: rgba(0, 230, 118, 0.12);
+  box-shadow: 0 0 14px rgba(0, 230, 118, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   3. Center Optical Crosshair & 8-Blade Aperture Diaphragm
+   -------------------------------------------------------------------------- */
+.hud-center-focus-rig {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 6;
+  transition: opacity 0.5s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.camera-intro-overlay.shutter-open .hud-center-focus-rig {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+/* Precision Circular Aperture / Diaphragm Assembly */
+.camera-aperture-assembly {
+  position: relative;
+  width: clamp(200px, 28vw, 300px);
+  height: clamp(200px, 28vw, 300px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Engraved Lens Ring */
+.camera-lens-barrel-ring {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid rgba(182, 154, 104, 0.45);
+  border-radius: 50%;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6);
+  animation: barrelSlowRotate 45s linear infinite;
+}
+
+@keyframes barrelSlowRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.camera-lens-inner-ring {
+  position: absolute;
+  inset: 16px;
+  border: 1px dashed rgba(245, 241, 232, 0.2);
+  border-radius: 50%;
+}
+
+/* 8 Mechanical Aperture Blades (SVG) */
+.aperture-blades-svg {
+  position: absolute;
+  inset: 22px;
+  width: calc(100% - 44px);
+  height: calc(100% - 44px);
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+  transform-origin: center;
+}
+
+.camera-intro-overlay.shutter-open .aperture-blades-svg {
+  transform: scale(2.2) rotate(45deg);
+  opacity: 0;
+}
+
+/* Center Electronic Horizon Line */
+.hud-level-horizon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 130px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.3s ease;
+}
+
+.hud-level-tick-l,
+.hud-level-tick-r {
+  width: 1px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.hud-level-horizon.locked {
+  background-color: #00e676;
+  box-shadow: 0 0 8px #00e676;
+}
+
+.hud-level-horizon.locked .hud-level-tick-l,
+.hud-level-horizon.locked .hud-level-tick-r {
+  background-color: #00e676;
+}
+
+/* Autofocus Reticle Box */
+.hud-focus-box {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border: 1.5px solid rgba(182, 154, 104, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: afHunting 1s infinite alternate ease-in-out;
+}
+
+@keyframes afHunting {
+  0% { transform: scale(0.96); border-color: rgba(182, 154, 104, 0.4); }
+  100% { transform: scale(1.04); border-color: rgba(182, 154, 104, 0.7); }
+}
+
+.hud-focus-box.locked {
+  animation: none;
+  border-color: #00e676;
+  box-shadow: 0 0 20px rgba(0, 230, 118, 0.45);
+  transform: scale(1.0);
+}
+
+/* Center Crosshair */
+.hud-crosshair-center {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.hud-crosshair-center::before,
+.hud-crosshair-center::after {
+  content: '';
+  position: absolute;
+  background-color: var(--accent-bronze, #B69A68);
+  transition: background-color 0.3s ease;
+}
+
+.hud-crosshair-center::before {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  transform: translateY(-50%);
+}
+
+.hud-crosshair-center::after {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  transform: translateX(-50%);
+}
+
+.hud-focus-box.locked .hud-crosshair-center::before,
+.hud-focus-box.locked .hud-crosshair-center::after {
+  background-color: #00e676;
+}
+
+/* Caption Under Reticle */
+.hud-focus-caption {
+  margin-top: 22px;
+  font-size: 12px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--text-primary, #F5F1E8);
+  font-weight: 500;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.hud-focus-caption-sub {
+  font-size: 10px;
+  letter-spacing: 2.2px;
+  color: var(--accent-bronze, #B69A68);
+  margin-top: 5px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Reduced Motion Fallback
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .camera-intro-overlay {
+    display: none !important;
+  }
+}
