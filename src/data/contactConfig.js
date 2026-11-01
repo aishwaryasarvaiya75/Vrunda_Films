@@ -31,8 +31,10 @@ export const contactConfig = {
     return `https://www.facebook.com/${this.facebookHandle}`
   },
 
-  // Studio Location & Coverage
-  location: 'Gujarat, India (Available across India & Worldwide)',
+  // Studio Location & Coverage (Rajkot, Gujarat)
+  city: 'Rajkot',
+  state: 'Gujarat',
+  location: 'Rajkot, Gujarat, India (Available across Gujarat, India & Worldwide)',
   workingHours: 'Mon - Sun: 9:00 AM – 9:00 PM',
 
   /**

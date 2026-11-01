@@ -17,7 +17,7 @@ export default function PortfolioPage({ onOpenLightbox }) {
           <h1 className="page-title">Portfolio</h1>
           <p className="page-subtitle">
             A curated archive of sacred wedding rituals, romantic pre-weddings, and grand
-            celebrations captured across Gujarat by Himanshu Sarvaiya.
+            celebrations captured in Rajkot and across Gujarat by Himanshu Sarvaiya.
           </p>
         </header>
 
@@ -35,7 +35,7 @@ export default function PortfolioPage({ onOpenLightbox }) {
         {/* Natural Aspect-Ratio-Preserving Gallery */}
         <div className="portfolio-gallery-masonry">
           {displayedItems.map((item) => {
-            const itemAltText = `${item.title} - ${item.categoryLabel} Photography in ${item.location} by Himanshu Sarvaiya, Vrunda Films`
+            const itemAltText = `${item.title} - ${item.categoryLabel} Photography in ${item.location} by Himanshu Sarvaiya, Vrunda Films Rajkot`
             return (
               <div
                 key={item.id}

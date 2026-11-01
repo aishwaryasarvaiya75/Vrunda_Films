@@ -12,7 +12,7 @@ export default function ServicesPage({ onSelectService }) {
           <h1 className="page-title">Photography &amp; Cinematography Services</h1>
           <p className="page-subtitle">
             From multi-day royal wedding ceremonies to cinema-grade teaser films
-            and handcrafted custom photo albums, explore our complete visual offerings by Himanshu Sarvaiya across Gujarat.
+            and handcrafted custom photo albums, explore our complete visual offerings by Himanshu Sarvaiya in Rajkot and across Gujarat.
           </p>
         </header>
 

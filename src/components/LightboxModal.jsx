@@ -56,7 +56,7 @@ export default function LightboxModal({ item, onClose, onPrev, onNext, currentIn
         <div className="lightbox-media-container">
           <img
             src={item.imageUrl}
-            alt={`${item.title} - ${item.categoryLabel || item.category || 'Photography'} in ${item.location || 'Gujarat'} by Himanshu Sarvaiya, Vrunda Films`}
+            alt={`${item.title} - ${item.categoryLabel || item.category || 'Photography'} in ${item.location || 'Rajkot, Gujarat'} by Himanshu Sarvaiya, Vrunda Films Rajkot`}
             className="lightbox-img"
           />
         </div>

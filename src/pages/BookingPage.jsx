@@ -205,7 +205,7 @@ export default function BookingPage({ initialService, onNavigate }) {
           <span className="page-eyebrow">Reservations</span>
           <h1 className="page-title">Book Your Event Photography</h1>
           <p className="page-subtitle">
-            Dates for prime wedding seasons across Gujarat fill months in advance. Share your celebration
+            Dates for prime wedding seasons in Rajkot and across Gujarat fill months in advance. Share your celebration
             details to check Himanshu Sarvaiya's availability and receive a customized photography quote.
           </p>
         </header>

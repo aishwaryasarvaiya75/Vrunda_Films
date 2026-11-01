@@ -14,73 +14,75 @@ export const getSiteUrl = () => {
 
 export const pageSeoData = {
   home: {
-    title: 'Vrunda Films | Himanshu Sarvaiya Photography & Cinematography',
+    title: 'Vrunda Films | Himanshu Sarvaiya - Wedding Photographer in Rajkot',
     description:
-      'Discover Vrunda Films by Himanshu Sarvaiya, offering wedding, pre-wedding, engagement, maternity, newborn, event photography, and cinematography services in Gujarat.',
+      'Vrunda Films by Himanshu Sarvaiya, leading wedding photographer and cinematographer in Rajkot, Gujarat. Specializing in royal weddings, pre-weddings, candid photography, and 4K cinematic films.',
     path: '',
     h1: 'VRUNDA FILMS',
     keywords: [
       'Vrunda Films',
+      'Himanshu Sarvaiya',
       'Himanshu Sarvaiya Photographer',
-      'Vrunda Films Photography',
-      'Wedding Photographer in Gujarat',
-      'Pre-Wedding Photographer in Gujarat',
-      'Wedding Cinematography in Gujarat'
+      'Photographer in Rajkot',
+      'Wedding Photographer in Rajkot',
+      'Cinematographer in Rajkot',
+      'Wedding Photography in Rajkot'
     ]
   },
   services: {
-    title: 'Photography & Cinematography Services in Gujarat | Vrunda Films',
+    title: 'Wedding Photography & Cinematography in Rajkot | Vrunda Films',
     description:
-      'Explore specialized wedding photography, pre-wedding shoots, 4K wedding cinematography, candid captures, and heirloom custom photo albums by Himanshu Sarvaiya across Gujarat.',
+      'Explore premier photography and cinematography services in Rajkot by Himanshu Sarvaiya. Offering royal wedding coverage, pre-wedding shoots, candid captures, 4K teaser films, and custom albums across Gujarat.',
     path: '#/services',
     h1: 'Photography & Cinematography Services',
     keywords: [
-      'Photography and Cinematography Services',
-      'Wedding Photography',
-      'Pre-Wedding Photography',
-      'Wedding Cinematography in Gujarat',
-      'Candid Wedding Photography',
-      'Professional Photo Albums'
+      'Wedding Photography in Rajkot',
+      'Cinematographer in Rajkot',
+      'Wedding Photographer in Rajkot',
+      'Pre-Wedding Photography Rajkot',
+      'Candid Photography Rajkot',
+      'Vrunda Films'
     ]
   },
   portfolio: {
-    title: 'Wedding & Pre-Wedding Photography Portfolio | Vrunda Films',
+    title: 'Wedding & Pre-Wedding Photography Portfolio | Vrunda Films Rajkot',
     description:
-      'Browse the curated photography portfolio of Himanshu Sarvaiya. Featuring real wedding moments, romantic pre-weddings, and candid celebrations across Gujarat.',
+      'Explore wedding and pre-wedding photography by Himanshu Sarvaiya in Rajkot and across Gujarat. View real candid moments, royal bridal portraits, and romantic stories.',
     path: '#/portfolio',
     h1: 'Visual Stories & Portfolio',
     keywords: [
-      'Vrunda Films Photography',
-      'Wedding Photographer in Gujarat',
-      'Pre-Wedding Photographer in Gujarat',
-      'Candid Wedding Photography',
-      'Gujarat Wedding Moments'
+      'Photographer in Rajkot',
+      'Wedding Photographer in Rajkot',
+      'Pre-Wedding Photography Rajkot',
+      'Vrunda Films Portfolio',
+      'Candid Wedding Photography Gujarat'
     ]
   },
   contact: {
-    title: 'Contact Himanshu Sarvaiya | Vrunda Films Photography Gujarat',
+    title: 'Contact Himanshu Sarvaiya | Wedding Photographer in Rajkot',
     description:
-      'Connect directly with Himanshu Sarvaiya for wedding photography and cinematography inquiries across Gujarat. Reach us via phone, WhatsApp, email, or studio consultation.',
+      'Get in touch with Himanshu Sarvaiya at Vrunda Films for wedding photography and cinematography inquiries in Rajkot, Gujarat. Available via phone, WhatsApp, and email.',
     path: '#/contact',
     h1: 'Get in Touch',
     keywords: [
+      'Contact Photographer in Rajkot',
+      'Himanshu Sarvaiya',
       'Himanshu Sarvaiya Photographer',
-      'Vrunda Films',
-      'Contact Wedding Photographer Gujarat',
-      'Gujarat Photography Studio'
+      'Vrunda Films Rajkot',
+      'Wedding Photographer Rajkot Contact'
     ]
   },
   booking: {
-    title: 'Book Wedding & Event Photography | Vrunda Films Gujarat',
+    title: 'Book Wedding Photographer in Rajkot | Vrunda Films',
     description:
-      'Reserve your wedding, pre-wedding, or event dates with Himanshu Sarvaiya. Check date availability and request a customized photography and cinematography proposal.',
+      'Book your wedding photography, pre-wedding shoot, or cinematography session with Himanshu Sarvaiya in Rajkot, Gujarat. Check date availability and request a custom quote.',
     path: '#/booking',
     h1: 'Book Your Event Photography',
     keywords: [
-      'Book Wedding Photographer Gujarat',
-      'Event Photography Booking',
-      'Wedding Cinematography Booking',
-      'Vrunda Films Booking'
+      'Book Wedding Photographer in Rajkot',
+      'Wedding Photography Booking Rajkot',
+      'Vrunda Films Booking',
+      'Himanshu Sarvaiya Photographer'
     ]
   }
 }
@@ -167,9 +169,21 @@ export function updatePageMetadata(pageKey) {
         '@type': 'Person',
         name: contactConfig.photographerName
       },
-      areaServed: {
-        '@type': 'State',
-        name: 'Gujarat'
+      areaServed: [
+        {
+          '@type': 'City',
+          name: 'Rajkot'
+        },
+        {
+          '@type': 'State',
+          name: 'Gujarat'
+        }
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Rajkot',
+        addressRegion: 'Gujarat',
+        addressCountry: 'IN'
       }
     }
   }

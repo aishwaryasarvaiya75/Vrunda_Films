@@ -28,7 +28,7 @@ export default function HomePage({
               </div>
 
               <p className="hero-intro-text">
-                Some moments fade with time, but the emotions behind them deserve to live forever. Led by Himanshu Sarvaiya, Vrunda Films crafts timeless wedding photography, romantic pre-weddings, and cinematic films across Gujarat and beyond.
+                Some moments fade with time, but the emotions behind them deserve to live forever. Led by Himanshu Sarvaiya, Vrunda Films crafts timeless wedding photography, romantic pre-weddings, candid celebrations, and cinematic films in Rajkot, across Gujarat and worldwide.
               </p>
 
               <div className="hero-actions-group">
@@ -55,17 +55,17 @@ export default function HomePage({
               <div className="hero-portrait-frame">
                 <img
                   src={himanshuPortrait}
-                  alt="Himanshu Sarvaiya - Professional Wedding Photographer and Cinematographer at Vrunda Films Gujarat"
+                  alt="Himanshu Sarvaiya - Professional Wedding Photographer and Cinematographer at Vrunda Films in Rajkot, Gujarat"
                   className={`hero-portrait-img ${heroFocusStage === 'blur' ? 'rack-focus-blur' : 'rack-focus-sharp'}`}
                 />
               </div>
 
               <div className="hero-portrait-caption">
-                <span className="hero-portrait-name">
+                <h2 className="hero-portrait-name">
                   {contactConfig.photographerName}
-                </span>
+                </h2>
                 <span className="hero-portrait-role">
-                  Wedding Photographer &amp; Cinematographer
+                  Wedding Photographer &amp; Cinematographer &bull; Rajkot, Gujarat
                 </span>
               </div>
             </div>
@@ -95,7 +95,7 @@ export default function HomePage({
           <div className="home-preview-grid">
             {selectedWorksData.map((work) => {
               const spanClass = work.orientation === 'landscape' ? 'span-landscape' : 'span-portrait'
-              const workAltText = `${work.title} - ${work.categoryLabel || work.category} Photography in ${work.location} by Himanshu Sarvaiya, Vrunda Films`
+              const workAltText = `${work.title} - ${work.categoryLabel || work.category} Photography in ${work.location} by Himanshu Sarvaiya, Vrunda Films Rajkot`
               return (
                 <div
                   key={work.id}
@@ -149,10 +149,9 @@ export default function HomePage({
           <div className="home-services-intro-grid">
             <div className="home-services-left">
               <span className="page-eyebrow">Expertise</span>
-              <h2>Visual Storytelling</h2>
+              <h2>Visual Storytelling in Rajkot</h2>
               <p>
-                From sacred Indian wedding traditions and 4K cinema films to fine-art
-                portraits and generational keepsakes, explore our specialized offerings.
+                From royal Gujarati wedding traditions and 4K cinema films to romantic pre-wedding shoots and candid captures, discover premium photography and cinematography services based in Rajkot, Gujarat.
               </p>
               <div style={{ marginTop: '28px' }}>
                 <button

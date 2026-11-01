@@ -21,7 +21,7 @@ export default function ContactPage({ onNavigate }) {
           <h1 className="page-title">Get in Touch</h1>
           <p className="page-subtitle">
             Every celebration starts with a conversation. Reach Himanshu Sarvaiya at Vrunda Films
-            directly via phone, WhatsApp, email, or Instagram for your wedding and event photography in Gujarat.
+            directly via phone, WhatsApp, email, or Instagram for your wedding and event photography in Rajkot, Gujarat.
           </p>
         </header>
 
